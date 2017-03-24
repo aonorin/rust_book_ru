@@ -28,7 +28,7 @@
                     </button>
                 </div>
 <div id='toc' class='mobile-hidden'>
-<ul class='chapter'>
+<ol class='chapter'>
 <li><a  href='../README.html'><b>1.</b> Introduction</a>
 </li>
 <li><a  href='../src/INTRODUCTION.html'><b>2.</b> Введение</a>
@@ -36,17 +36,17 @@
 <li><a class='active' href='../src/getting-started.html'><b>3.</b> C чего начать</a>
 </li>
 <li><a  href='../src/learn-rust.html'><b>4.</b> Изучение Rust</a>
-<ul class='section'>
+<ol class='section'>
 <li><a  href='../src/guessing-game.html'><b>4.1.</b> Угадайка</a>
 </li>
 <li><a  href='../src/dining-philosophers.html'><b>4.2.</b> Обедающие философы</a>
 </li>
 <li><a  href='../src/rust-inside-other-languages.html'><b>4.3.</b> Вызов кода на Rust из других языков</a>
 </li>
-</ul>
+</ol>
 </li>
 <li><a  href='../src/syntax-and-semantics.html'><b>5.</b> Синтаксис и семантика</a>
-<ul class='section'>
+<ol class='section'>
 <li><a  href='../src/variable-bindings.html'><b>5.1.</b> Связывание имён</a>
 </li>
 <li><a  href='../src/functions.html'><b>5.2.</b> Функции</a>
@@ -119,10 +119,10 @@
 </li>
 <li><a  href='../src/unsafe.html'><b>5.36.</b> Небезопасный код</a>
 </li>
-</ul>
+</ol>
 </li>
 <li><a  href='../src/effective-rust.html'><b>6.</b> Эффективное использование Rust</a>
-<ul class='section'>
+<ol class='section'>
 <li><a  href='../src/the-stack-and-the-heap.html'><b>6.1.</b> Стек и куча</a>
 </li>
 <li><a  href='../src/testing.html'><b>6.2.</b> Тестирование</a>
@@ -147,10 +147,10 @@
 </li>
 <li><a  href='../src/using-rust-without-the-standard-library.html'><b>6.12.</b> Using Rust without the standard library</a>
 </li>
-</ul>
+</ol>
 </li>
 <li><a  href='../src/nightly-rust.html'><b>7.</b> Нестабильные возможности Rust</a>
-<ul class='section'>
+<ol class='section'>
 <li><a  href='../src/compiler-plugins.html'><b>7.1.</b> Плагины к компилятору</a>
 </li>
 <li><a  href='../src/inline-assembly.html'><b>7.2.</b> Встроенный ассемблерный код</a>
@@ -173,7 +173,7 @@
 </li>
 <li><a  href='../src/custom-allocators.html'><b>7.11.</b> Пользовательские менеджеры памяти</a>
 </li>
-</ul>
+</ol>
 </li>
 <li><a  href='../src/glossary.html'><b>8.</b> Глоссарий</a>
 </li>
@@ -181,7 +181,7 @@
 </li>
 <li><a  href='../src/bibliography.html'><b>10.</b> Библиография</a>
 </li>
-</ul>
+</ol>
 </div>
 <div id='page-wrapper'>
 <div id='page'>
@@ -639,13 +639,10 @@ $ cd hello_world
 <p>Теперь откройте только что созданный файл <em>main.rs</em> и добавьте в него следующий
 код:</p>
 
-<span class='rusttest'>fn main() {
-    println!(&quot;Привет, мир!&quot;);
-}
-</span><pre class='rust rust-example-rendered'>
-<span class='kw'>fn</span> <span class='ident'>main</span>() {
-    <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Привет, мир!&quot;</span>);
-}</pre>
+<pre class="rust rust-example-rendered">
+<span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Привет, мир!&quot;</span>);
+}<a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=fn%20main()%20%7B%0A%20%20%20%20println!(%22%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C%20%D0%BC%D0%B8%D1%80!%22)%3B%0A%7D%0A">Run</a></pre>
 
 <p>Сохраните файл и вернитесь к вашему окну терминала. На Linux или OSX введите
 следующие команды:</p>
@@ -663,13 +660,10 @@ $ ./main
 <p>Теперь давайте детально разберёмся, что происходит в программе «Привет, мир!».
 Вот первый кусочек головоломки:</p>
 
-<span class='rusttest'>fn main() {
+<pre class="rust rust-example-rendered">
+<span class="kw">fn</span> <span class="ident">main</span>() {
 
-}
-</span><pre class='rust rust-example-rendered'>
-<span class='kw'>fn</span> <span class='ident'>main</span>() {
-
-}</pre>
+}<a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=fn%20main()%20%7B%0A%0A%7D%0A">Run</a></pre>
 
 <p>Эти строки объявляют «функцию» в Rust. Функция <code>main</code> особенна: это начало
 каждой программы на Rust. Первая строка говорит: «Мы объявляем функцию,
@@ -685,10 +679,8 @@ Rust требует оборачивать ими тело любой функц
 
 <p>Теперь эта строка:</p>
 
-<span class='rusttest'>fn main() {
-        println!(&quot;Привет, мир!&quot;);
-}</span><pre class='rust rust-example-rendered'>
-    <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Привет, мир!&quot;</span>);</pre>
+<pre class="rust rust-example-rendered">
+<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Привет, мир!&quot;</span>);<a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=fn%20main()%20%7B%0Aprintln!(%22%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%2C%20%D0%BC%D0%B8%D1%80!%22)%3B%0A%7D">Run</a></pre>
 
 <p>Эта строка делает всю работу в нашей маленькой программе: выводит текст на
 экран. Тут есть несколько нюансов, которые имеют существенное значение.
@@ -852,7 +844,7 @@ Cargo для компиляции вашей программы: имя, вер�
 На этом создание конфигурационного файла завершено.</p>
 
 <h2 id='Сборка-и-запуск-cargo-проекта' class='section-header'><a href='#Сборка-и-запуск-cargo-проекта'>Сборка и запуск Cargo проекта</a></h2>
-<p>Теперь, после создания файла <code>Carto.toml</code> в корневой директории, мы готовы
+<p>Теперь, после создания файла <code>Cargo.toml</code> в корневой директории, мы готовы
 приступить к сборке и запуску нашего проекта. Чтобы сделать это, введите
 следующие команды:</p>
 
@@ -953,13 +945,10 @@ authors = [&quot;Your Name &lt;you@example.com&gt;&quot;]
 
 <p>Вот что должно быть внутри <code>src/main.rs</code>:</p>
 
-<span class='rusttest'>fn main() {
-    println!(&quot;Hello, world!&quot;);
-}
-</span><pre class='rust rust-example-rendered'>
-<span class='kw'>fn</span> <span class='ident'>main</span>() {
-    <span class='macro'>println</span><span class='macro'>!</span>(<span class='string'>&quot;Hello, world!&quot;</span>);
-}</pre>
+<pre class="rust rust-example-rendered">
+<span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Hello, world!&quot;</span>);
+}<a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=fn%20main()%20%7B%0A%20%20%20%20println!(%22Hello%2C%20world!%22)%3B%0A%7D%0A">Run</a></pre>
 
 <p>Cargo создал «Hello World!» для нас, и вы уже можете приступить к
 программированию!</p>
@@ -982,11 +971,7 @@ authors = [&quot;Your Name &lt;you@example.com&gt;&quot;]
 всего, захотят пойти по второму пути. Разные люди учатся по-разному! Выберите
 то, что подходит именно вам.</p>
 
-    <script type="text/javascript">
-        window.playgroundUrl = "https://play.rust-lang.org";
-    </script>
-    <script src='rustbook.js'></script>
-<script src='playpen.js'></script>
+    <script src='../rustbook.js'></script>
 </div></div>
 
 
