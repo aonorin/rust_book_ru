@@ -6,7 +6,7 @@ export RUSTBOOK=$HOME/rustbook; echo "INFO:RUSTBOOK: $RUSTBOOK"
 if [ ! -f "$RUSTBOOK"/target/release/rustbook ]; then
     git clone https://github.com/mkpankov/rustbook $RUSTBOOK
     cd $RUSTBOOK
-    git checkout 622cadc354c277faacafa39759f516a51ed8af1b
+    git checkout 3c83f12cb55b3e90873df7f97812cacca15e985f
     cargo build --release
     cd $SAVED_PWD
 else

@@ -1,7 +1,7 @@
 % Циклы
 
 На данный момент в Rust есть три способа организовать циклическое исполнение
-кода. Это `loop`, `while` и `for`. У каждого подхода своё применения.
+кода. Это `loop`, `while` и `for`. У каждого подхода своё применение.
 
 ## Циклы `loop`
 
@@ -132,7 +132,7 @@ i = 4 и j = 9
 #### С итераторами
 
 ```rust
-# let lines = "привет\nмир\nhello\nworld".lines();
+let lines = "привет\nмир\nhello\nworld".lines();
 for (linenumber, line) in lines.enumerate() {
     println!("{}: {}", linenumber, line);
 }
